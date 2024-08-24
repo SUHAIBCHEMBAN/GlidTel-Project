@@ -1,709 +1,474 @@
-<!-- /*
-* Bootstrap 5
-* Template Name: Furni
-* Template Author: Untree.co
-* Template URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="author" content="Untree.co" />
-    <link rel="shortcut icon" href="favicon.png" />
-
-    <meta name="description" content="" />
-    <meta name="keywords" content="bootstrap, bootstrap4" />
-
-    <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link href="css/tiny-slider.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
-    <title>Glide Tel | Home</title>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glide-Tel | Home </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--icons-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-     
+      *{
+        margin: 0%;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        box-sizing: border-box;
+        }
+        .background{
+            background-image: url("{% static 'image/firstone.jpg' %}");
+            background-size: cover;
+            height: 95vh;
+            width: 100%;
+            margin: auto;
+        }
         
+        header{
+            height:86px ;
+            width: 100%;
+            padding-bottom:10%;
+        }
+        .nav{
+            
+            display: flex;
+            height: 86px;
+            width: 1200px;  
+            margin: auto;
+        }
+        .logo{
+            height: 86px;
+            width: 104px;
+        }
+        .logo img{
+            height:55px ;
+            width: 104px;
+            margin-top: 15%;
+            cursor: pointer;
+        }
+        .navbar{
+            height:86px;
+            width:903px;
+            display: flex;
+        }
+        
+        .navbar h4{
+            margin-top:33px;
+            margin-left:33px;
+            cursor: pointer;
+            color: rgb(104, 106, 107);
+        }
+        
+        .user{
+            height: 86px;
+            width: 170px;
+            margin-left: 10px;
+        }
+        
+        .user img{
+            margin-top:17%;
+            margin-left:33px;
+            height:30px;
+            width:30px;
+            cursor: pointer;
+        }
+        
+        .banner{
+            height: 172px;
+            width: 100%;
+            
+        }
+        .part{
+            margin-left:6%;
+        }
+        .part img{
+            margin-top:6%;
+            height:60px ;
+            width: 150px;
+            cursor: pointer;
+        } 
+        .part h3{
+            font-size: 40px;
+            font-weight: 100;
+            cursor: pointer;
+        }  
+        .part p{
+            font-size: 25px;
+            font-weight: 200;
+            cursor: pointer;
+        }
+        .banner1{
+            height: 1194px;
+            width: 100%;
+        }
+        
+        .part1{
+            color: white;
+            height: 527px;
+            width: 1189px;
+            background-image: url("{% static 'image/second one.jpg' %}");
+            background-size: cover;
+            border-radius:8px;
+            margin: auto;
+            padding-top:8%;
+        }
+        .space{
+            height: 47px;
+        }
+        .part2{
+            color: white;
+            height: 527px;
+            width: 1189px;
+            background-image: url("{% static 'image/thirdone.jpg' %}");
+            background-size: cover;
+            border-radius:8px;
+            margin: auto;
+            padding-top:8%;
+        }
+        
+        .banner2{
+            height:900px ;
+            width: 100%;
+            padding:4%;
+        }
+        .banner2 p{
+            font-size: 50px;
+            font-weight:500;
+            margin-left: 20px;
+        }
+        .card{
+            display: flex;
+            height:750px;
+            width:1189px;
+            margin:auto;
+        
+        }
+        .crd{
+            margin: auto;
+            height:700px;
+            width:370px;
+            padding-top: 20px;
+        }
+        #huge{
+            height: 640px;
+            width: 370px;
+            border-radius: 15px;
+        }
+        .crd img{
+            margin-top: -20px;
+            height: 275px;
+            width: 370px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        .crd1{
+            height:420px;
+            width:370px;
+            background-color:white;
+            margin: auto;
+            border-radius: 8px;
+        }
+        .cad1 img{
+            height:239px;
+            width:375px;
+        }
+        .crd1 p{
+            margin-top: 10px;
+            font-size: 20px;
+            text-align: center;
+            font-weight: 550;
+        }
+        #small{
+            margin-top: 4px;
+        }
+        
+        footer{
+            height: 652px;
+            width:100%;
+            background-color: black;
+            padding: 76px;
+        }
+        
+        .content{
+            display: flex;
+            height:496px;
+            width:1189px;
+            margin: auto;
+            padding-top: 40px;
+            justify-content: space-between;
+        }
+        .tab{
+            height:453px;
+            width:744px;
+        }
+        .content table{
+            text-align: left;
+            width:744px;
+            height:448px;
+            font-weight: 500;
+        }
+        table th{
+            font-size: 20px;
+            color: white;
+        }
+        table td{
+            color: rgb(125, 128, 131);
+            font-size: 17px;
+        }
+        .information{
+            height:350px;
+            width:296px;
+            color: rgb(125, 128, 131);
+        }
+        .information img{
+            height:28px;
+            width: 28px;
+            margin-top:6px;
+        }
+        .num{
+            font-weight: 600;
+            font-size: 28px;
+            color: white;
+        }
+        .share{
+            height:107px;
+            width:295px;
+            padding-top: 40px;
+            font-size: 20px;
+        }
+        .share img{
+            height:34px;
+            width: 40px;
+            cursor: pointer;
+        }
+        
+        .lastfoot{
+            display: flex;
+            height:77px;
+            width:1189px;
+            background-color:black;
+            margin: auto; 
+            justify-content: space-between;
+            padding-top:30px;
+            color: rgb(125, 128, 131); 
+        }
+        .end2{
+            display: flex;
+        }
+        .end2 img{
+            height: 25px;
+            width: 25px;
+        }
     </style>
-  </head>
-
-  <body>
-    <!-- Start Header/Navigation -->
-    <nav
-      class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark"
-      arial-label="Furni navigation bar"
-    >
-      <div class="container">
-        <a class="navbar-brand" href="index.html">Furni<span>.</span></a>
-
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarsFurni"
-          aria-controls="navbarsFurni"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarsFurni">
-          <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li><a class="nav-link" href="shop.html">Shop</a></li>
-            <li><a class="nav-link" href="about.html">About us</a></li>
-            <li><a class="nav-link" href="services.html">Services</a></li>
-            <li><a class="nav-link" href="blog.html">Blog</a></li>
-            <li><a class="nav-link" href="contact.html">Contact us</a></li>
-          </ul>
-
-          <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-            <li>
-              <a class="nav-link" href="#"><img src="images/user.svg" /></a>
-            </li>
-            <li>
-              <a class="nav-link" href="cart.html"
-                ><img src="images/cart.svg"
-              /></a>
-            </li>
-          </ul>
+</head>
+<body>
+    <div class="background">
+      <nav class="navbar navbar-expand-lg w-100">
+        <div class="container">
+            <h1><a class="navbar-brand" href="#">Glide-Tel</a></h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'shope' %}">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'service' %}">Service</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Support
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Complaints</a></li>
+                            <li><a class="dropdown-item" href="#">About</a></li>
+                            <li><a class="dropdown-item" href="#">Claim Warranty</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                </form>
+                <ul class="navbar-nav">
+                    <!-- Cart Icon -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </li>
+                    <!-- Profile Icon -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-user"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
-    <!-- End Header/Navigation -->
-
-    <!-- Start Hero Section -->
-    <div class="hero">
-      <div class="container">
-        <div class="row justify-content-between">
-          <div class="col-lg-5">
-            <div class="intro-excerpt">
-              <h1>
-                Modern Interior <span clsas="d-block">Design Studio</span>
-              </h1>
-              <p class="mb-4">
-                Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet
-                velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
-              </p>
-              <p>
-                <a href="" class="btn btn-secondary me-2">Shop Now</a
-                ><a href="#" class="btn btn-white-outline">Explore</a>
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-7">
-            <div class="hero-img-wrap">
-              <img src="images/couch.png" class="img-fluid" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Hero Section -->
-
-    <!-- Start Product Section -->
-    <div class="product-section">
-      <div class="container">
-        <div class="row">
-          <!-- Start Column 1 -->
-          <div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
-            <h2 class="mb-4 section-title">Crafted with excellent material.</h2>
-            <p class="mb-4">
-              Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet
-              velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
-            </p>
-            <p><a href="shop.html" class="btn">Explore</a></p>
-          </div>
-          <!-- End Column 1 -->
-
-          <!-- Start Column 2 -->
-          <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-            <a class="product-item" href="cart.html">
-              <img
-                src="images/product-1.png"
-                class="img-fluid product-thumbnail"
-              />
-              <h3 class="product-title">Nordic Chair</h3>
-              <strong class="product-price">$50.00</strong>
-
-              <span class="icon-cross">
-                <img src="images/cross.svg" class="img-fluid" />
-              </span>
-            </a>
-          </div>
-          <!-- End Column 2 -->
-
-          <!-- Start Column 3 -->
-          <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-            <a class="product-item" href="cart.html">
-              <img
-                src="images/product-2.png"
-                class="img-fluid product-thumbnail"
-              />
-              <h3 class="product-title">Kruzo Aero Chair</h3>
-              <strong class="product-price">$78.00</strong>
-
-              <span class="icon-cross">
-                <img src="images/cross.svg" class="img-fluid" />
-              </span>
-            </a>
-          </div>
-          <!-- End Column 3 -->
-
-          <!-- Start Column 4 -->
-          <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-            <a class="product-item" href="cart.html">
-              <img
-                src="images/product-3.png"
-                class="img-fluid product-thumbnail"
-              />
-              <h3 class="product-title">Ergonomic Chair</h3>
-              <strong class="product-price">$43.00</strong>
-
-              <span class="icon-cross">
-                <img src="images/cross.svg" class="img-fluid" />
-              </span>
-            </a>
-          </div>
-          <!-- End Column 4 -->
-        </div>
-      </div>
-    </div>
-    <!-- End Product Section -->
-
-    <!-- Start Why Choose Us Section -->
-    <div class="why-choose-section">
-      <div class="container">
-        <div class="row justify-content-between">
-          <div class="col-lg-6">
-            <h2 class="section-title">Why Choose Us</h2>
-            <p>
-              Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet
-              velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
-            </p>
-
-            <div class="row my-5">
-              <div class="col-6 col-md-6">
-                <div class="feature">
-                  <div class="icon">
-                    <img src="images/truck.svg" alt="Image" class="imf-fluid" />
-                  </div>
-                  <h3>Fast &amp; Free Shipping</h3>
-                  <p>
-                    Donec vitae odio quis nisl dapibus malesuada. Nullam ac
-                    aliquet velit. Aliquam vulputate.
-                  </p>
+    
+    
+    <div class="banner">
+        <div class="part">
+            <img src="{% static "/image/v29.svg" %}"> 
+             <h3>Delight Every Moment</h3>   
+                <p>Buy Now > </p>
                 </div>
-              </div>
-
-              <div class="col-6 col-md-6">
-                <div class="feature">
-                  <div class="icon">
-                    <img src="images/bag.svg" alt="Image" class="imf-fluid" />
-                  </div>
-                  <h3>Easy to Shop</h3>
-                  <p>
-                    Donec vitae odio quis nisl dapibus malesuada. Nullam ac
-                    aliquet velit. Aliquam vulputate.
-                  </p>
-                </div>
-              </div>
-
-              <div class="col-6 col-md-6">
-                <div class="feature">
-                  <div class="icon">
-                    <img
-                      src="images/support.svg"
-                      alt="Image"
-                      class="imf-fluid"
-                    />
-                  </div>
-                  <h3>24/7 Support</h3>
-                  <p>
-                    Donec vitae odio quis nisl dapibus malesuada. Nullam ac
-                    aliquet velit. Aliquam vulputate.
-                  </p>
-                </div>
-              </div>
-
-              <div class="col-6 col-md-6">
-                <div class="feature">
-                  <div class="icon">
-                    <img
-                      src="images/return.svg"
-                      alt="Image"
-                      class="imf-fluid"
-                    />
-                  </div>
-                  <h3>Hassle Free Returns</h3>
-                  <p>
-                    Donec vitae odio quis nisl dapibus malesuada. Nullam ac
-                    aliquet velit. Aliquam vulputate.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-5">
-            <div class="img-wrap">
-              <img
-                src="images/why-choose-us-img.jpg"
-                alt="Image"
-                class="img-fluid"
-              />
-            </div>
-          </div>
+         </div>
         </div>
-      </div>
-    </div>
-    <!-- End Why Choose Us Section -->
-
-    <!-- Start We Help Section -->
-    <div class="we-help-section">
-      <div class="container">
-        <div class="row justify-content-between">
-          <div class="col-lg-7 mb-5 mb-lg-0">
-            <div class="imgs-grid">
-              <div class="grid grid-1">
-                <img src="images/img-grid-1.jpg" alt="Untree.co" />
-              </div>
-              <div class="grid grid-2">
-                <img src="images/img-grid-2.jpg" alt="Untree.co" />
-              </div>
-              <div class="grid grid-3">
-                <img src="images/img-grid-3.jpg" alt="Untree.co" />
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-5 ps-lg-5">
-            <h2 class="section-title mb-4">
-              We Help You Make Modern Interior Design
-            </h2>
-            <p>
-              Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio
-              quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
-              vulputate velit imperdiet dolor tempor tristique. Pellentesque
-              habitant morbi tristique senectus et netus et malesuada
-            </p>
-
-            <ul class="list-unstyled custom-list my-4">
-              <li>Donec vitae odio quis nisl dapibus malesuada</li>
-              <li>Donec vitae odio quis nisl dapibus malesuada</li>
-              <li>Donec vitae odio quis nisl dapibus malesuada</li>
-              <li>Donec vitae odio quis nisl dapibus malesuada</li>
-            </ul>
-            <p><a herf="#" class="btn">Explore</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End We Help Section -->
-
-    <!-- Start Popular Product -->
-    <div class="popular-product">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
-            <div class="product-item-sm d-flex">
-              <div class="thumbnail">
-                <img src="images/product-1.png" alt="Image" class="img-fluid" />
-              </div>
-              <div class="pt-3">
-                <h3>Nordic Chair</h3>
-                <p>
-                  Donec facilisis quam ut purus rutrum lobortis. Donec vitae
-                  odio
-                </p>
-                <p><a href="#">Read More</a></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
-            <div class="product-item-sm d-flex">
-              <div class="thumbnail">
-                <img src="images/product-2.png" alt="Image" class="img-fluid" />
-              </div>
-              <div class="pt-3">
-                <h3>Kruzo Aero Chair</h3>
-                <p>
-                  Donec facilisis quam ut purus rutrum lobortis. Donec vitae
-                  odio
-                </p>
-                <p><a href="#">Read More</a></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
-            <div class="product-item-sm d-flex">
-              <div class="thumbnail">
-                <img src="images/product-3.png" alt="Image" class="img-fluid" />
-              </div>
-              <div class="pt-3">
-                <h3>Ergonomic Chair</h3>
-                <p>
-                  Donec facilisis quam ut purus rutrum lobortis. Donec vitae
-                  odio
-                </p>
-                <p><a href="#">Read More</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Popular Product -->
-
-    <!-- Start Testimonial Slider -->
-    <div class="testimonial-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7 mx-auto text-center">
-            <h2 class="section-title">Testimonials</h2>
-          </div>
-        </div>
-
-        <div class="row justify-content-center">
-          <div class="col-lg-12">
-            <div class="testimonial-slider-wrap text-center">
-              <div id="testimonial-nav">
-                <span class="prev" data-controls="prev"
-                  ><span class="fa fa-chevron-left"></span
-                ></span>
-                <span class="next" data-controls="next"
-                  ><span class="fa fa-chevron-right"></span
-                ></span>
-              </div>
-
-              <div class="testimonial-slider">
-                <div class="item">
-                  <div class="row justify-content-center">
-                    <div class="col-lg-8 mx-auto">
-                      <div class="testimonial-block text-center">
-                        <blockquote class="mb-5">
-                          <p>
-                            &ldquo;Donec facilisis quam ut purus rutrum
-                            lobortis. Donec vitae odio quis nisl dapibus
-                            malesuada. Nullam ac aliquet velit. Aliquam
-                            vulputate velit imperdiet dolor tempor tristique.
-                            Pellentesque habitant morbi tristique senectus et
-                            netus et malesuada fames ac turpis egestas. Integer
-                            convallis volutpat dui quis scelerisque.&rdquo;
-                          </p>
-                        </blockquote>
-
-                        <div class="author-info">
-                          <div class="author-pic">
-                            <img
-                              src="images/person-1.png"
-                              alt="Maria Jones"
-                              class="img-fluid"
-                            />
-                          </div>
-                          <h3 class="font-weight-bold">Maria Jones</h3>
-                          <span class="position d-block mb-3"
-                            >CEO, Co-Founder, XYZ Inc.</span
-                          >
-                        </div>
-                      </div>
+ 
+    <div class="banner1"> 
+            <div class="space"></div>
+            <div class="part1">
+                    <div class="part">
+                        <img src="{% static "/image/x90.svg" %}">
+                        <h3>Xtreme Imagination</h3>   
+                        <p>Buy Now > </p>
                     </div>
-                  </div>
-                </div>
-                <!-- END item -->
-
-                <div class="item">
-                  <div class="row justify-content-center">
-                    <div class="col-lg-8 mx-auto">
-                      <div class="testimonial-block text-center">
-                        <blockquote class="mb-5">
-                          <p>
-                            &ldquo;Donec facilisis quam ut purus rutrum
-                            lobortis. Donec vitae odio quis nisl dapibus
-                            malesuada. Nullam ac aliquet velit. Aliquam
-                            vulputate velit imperdiet dolor tempor tristique.
-                            Pellentesque habitant morbi tristique senectus et
-                            netus et malesuada fames ac turpis egestas. Integer
-                            convallis volutpat dui quis scelerisque.&rdquo;
-                          </p>
-                        </blockquote>
-
-                        <div class="author-info">
-                          <div class="author-pic">
-                            <img
-                              src="images/person-1.png"
-                              alt="Maria Jones"
-                              class="img-fluid"
-                            />
-                          </div>
-                          <h3 class="font-weight-bold">Maria Jones</h3>
-                          <span class="position d-block mb-3"
-                            >CEO, Co-Founder, XYZ Inc.</span
-                          >
-                        </div>
-                      </div>
+            </div>
+            <div class="space">
+            </div>
+            <div class="part2">
+                    <div class="part">
+                        <img src="{% static "/image/t2.svg" %}">
+                        <h3>Get.Set.Turbo</h3>   
+                        <p>Buy Now > </p>
                     </div>
-                  </div>
-                </div>
-                <!-- END item -->
+            </div>
+    </div>
 
-                <div class="item">
-                  <div class="row justify-content-center">
-                    <div class="col-lg-8 mx-auto">
-                      <div class="testimonial-block text-center">
-                        <blockquote class="mb-5">
-                          <p>
-                            &ldquo;Donec facilisis quam ut purus rutrum
-                            lobortis. Donec vitae odio quis nisl dapibus
-                            malesuada. Nullam ac aliquet velit. Aliquam
-                            vulputate velit imperdiet dolor tempor tristique.
-                            Pellentesque habitant morbi tristique senectus et
-                            netus et malesuada fames ac turpis egestas. Integer
-                            convallis volutpat dui quis scelerisque.&rdquo;
-                          </p>
-                        </blockquote>
-
-                        <div class="author-info">
-                          <div class="author-pic">
-                            <img
-                              src="images/person-1.png"
-                              alt="Maria Jones"
-                              class="img-fluid"
-                            />
-                          </div>
-                          <h3 class="font-weight-bold">Maria Jones</h3>
-                          <span class="position d-block mb-3"
-                            >CEO, Co-Founder, XYZ Inc.</span
-                          >
-                        </div>
-                      </div>
+        <div class="banner2">
+            <p>DISCOVER</p>
+            <div class="card">
+                <div class="crd">
+                    <img src="{% static "/image/card1.jpg" %}">
+                    <div class="crd1">
+                        <img id="small" src="{% static "/image/card2.jpg"%}">
+                        <p>iQOO NEO 7 5G</p>
+                        <p>Starting ₹27,999</p>
                     </div>
-                  </div>
+    
                 </div>
-                <!-- END item -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Testimonial Slider -->
-
-    <!-- Start Blog Section -->
-    <div class="blog-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-6">
-            <h2 class="section-title">Recent Blog</h2>
-          </div>
-          <div class="col-md-6 text-start text-md-end">
-            <a href="#" class="more">View All Posts</a>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
-            <div class="post-entry">
-              <a href="#" class="post-thumbnail"
-                ><img src="images/post-1.jpg" alt="Image" class="img-fluid"
-              /></a>
-              <div class="post-content-entry">
-                <h3><a href="#">First Time Home Owner Ideas</a></h3>
-                <div class="meta">
-                  <span>by <a href="#">Kristin Watson</a></span>
-                  <span>on <a href="#">Dec 19, 2021</a></span>
+                <div class="crd">
+                    <img id="huge" src=" {% static "/image/card3.jpg" %}">
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
-            <div class="post-entry">
-              <a href="#" class="post-thumbnail"
-                ><img src="images/post-2.jpg" alt="Image" class="img-fluid"
-              /></a>
-              <div class="post-content-entry">
-                <h3><a href="#">How To Keep Your Furniture Clean</a></h3>
-                <div class="meta">
-                  <span>by <a href="#">Robert Fox</a></span>
-                  <span>on <a href="#">Dec 15, 2021</a></span>
+                <div class="crd">
+                    <div class="crd1">                  
+                        <img src=" {% static "/image/card4.jpg"%}">
+                        <p>TWS Air</p>
+                        <p>Buy now</p>
+                    </div>                    
+                    <img src="{% static "/image/card5.jpg" %}">
                 </div>
-              </div>
             </div>
-          </div>
+        </div> 
 
-          <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
-            <div class="post-entry">
-              <a href="#" class="post-thumbnail"
-                ><img src="images/post-3.jpg" alt="Image" class="img-fluid"
-              /></a>
-              <div class="post-content-entry">
-                <h3><a href="#">Small Space Furniture Apartment Ideas</a></h3>
-                <div class="meta">
-                  <span>by <a href="#">Kristin Watson</a></span>
-                  <span>on <a href="#">Dec 12, 2021</a></span>
+
+    <footer>
+            <div class="content">
+             <div class="tab">
+            <table >
+                <tr>
+                    <th>Popular Offers</th>
+                    <th>Purchase Online</th>
+                    <th>Support</th>
+                    <th>About Glide-Tel</th>
+                </tr>
+                <tr>
+                    <td>iphone X</td>
+                    <td>E-store</td>
+                    <td>FAQs</td>
+                    <td>Info</td>
+                </tr>
+                <tr>
+                    <td>X90</td>
+                    <td>Buy phones</td>
+                    <td>Service Center</td>
+                    <td>India Impact Report</td>
+                </tr>
+                <tr>
+                    <td>V29 Pro</td>
+                    <td>Buy accessories</td>
+                    <td>Funtouch OS</td>
+                    <td>E-waste Management</td>
+                </tr>
+                <tr>
+                    <td>V29</td>
+                    <td>My orders</td>
+                    <td>IMEI Authentication</td>
+                    <td>Careers at vivo</td>
+                </tr>
+                <tr>
+                    <td>V29e</td>
+                    <td>Privacy Terms for E-Store</td>
+                    <td>Query of Spare Parts Price</td>
+                    <td>Terms and Conditions</td>
+                </tr>
+                <tr>
+                    <td>Y27</td>
+                    <td>Payment Terms and Policies</td>
+                    <td>Write to CEO</td>
+                    <td>Investor Information</td>
+                </tr>
+                <tr>
+                    <td>All Models</td>
+                    <td></td>
+                    <td></td>
+                    <td>vivo Privacy Center</td>
+                </tr>
+                <tr>
+                    <td>Enterprise sales</td>
+                    <td></td>
+                    <td></td>
+                    <td>Equal Opportunity Policy</td>
+                </tr>
+                <tr>
+                    <td>vivo Exclusive store</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+           </table>
+            </div>
+            <div class="information">                
+                <img src="{% static "/image/mail.png" %}">
+                <p>Email Us(Reply in 24h)</p>                
+                <img src="{% static "/image/phone.svg" %}">
+                <span>24*7</span>
+                <p class="num">1800-208-3388</p>              
+                <img src="{% static "/image/phone.svg" %}">
+                <span>24*7</span>
+                <p class="num">1800-102-3388</p>                
+                <img src="{% static "/image/phone.svg" %}">
+
+                <div class="share">
+                    <p>Follow us</p>                    
+                    <img src="{% static "/image/facebook.svg" %}">                
+                    <img src="{% static "/image/inste.svg" %}">                    
+                    <img src="{% static "/image/youtube.svg" %}">                    
+                    <img src="{% static "/image/twitter.svg" %}">                    
+                    <img src="{% static "/image/linkedin.svg" %}">
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Blog Section -->
-
-    <!-- Start Footer Section -->
-    <footer class="footer-section">
-      <div class="container relative">
-        <div class="sofa-img">
-          <img src="images/sofa.png" alt="Image" class="img-fluid" />
-        </div>
-
-        <div class="row">
-          <div class="col-lg-8">
-            <div class="subscription-form">
-              <h3 class="d-flex align-items-center">
-                <span class="me-1"
-                  ><img
-                    src="images/envelope-outline.svg"
-                    alt="Image"
-                    class="img-fluid" /></span
-                ><span>Subscribe to Newsletter</span>
-              </h3>
-
-              <form action="#" class="row g-3">
-                <div class="col-auto">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter your name"
-                  />
+            </div>
+            <div class="lastfoot">
+                <div class="end1">
+                    <p>2023 vivo Mobile India Pvt Ltd.All rights reserved.|Privacy Policy | Cookie Policy | Warranty Terms | Privacy Support  </p>
                 </div>
-                <div class="col-auto">
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="Enter your email"
-                  />
+                <div class="end2">
+                    <p>India | Select country/region</p>                    
+                    <img src="{% static "/image/global logo.jpg" %}">
                 </div>
-                <div class="col-auto">
-                  <button class="btn btn-primary">
-                    <span class="fa fa-paper-plane"></span>
-                  </button>
-                </div>
-              </form>
             </div>
-          </div>
-        </div>
+    </footer> 
 
-        <div class="row g-5 mb-5">
-          <div class="col-lg-4">
-            <div class="mb-4 footer-logo-wrap">
-              <a href="#" class="footer-logo">Furni<span>.</span></a>
-            </div>
-            <p class="mb-4">
-              Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio
-              quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
-              vulputate velit imperdiet dolor tempor tristique. Pellentesque
-              habitant
-            </p>
+<!--------JS link ---------->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
-            <ul class="list-unstyled custom-social">
-              <li>
-                <a href="#"><span class="fa fa-brands fa-facebook-f"></span></a>
-              </li>
-              <li>
-                <a href="#"><span class="fa fa-brands fa-twitter"></span></a>
-              </li>
-              <li>
-                <a href="#"><span class="fa fa-brands fa-instagram"></span></a>
-              </li>
-              <li>
-                <a href="#"><span class="fa fa-brands fa-linkedin"></span></a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-lg-8">
-            <div class="row links-wrap">
-              <div class="col-6 col-sm-6 col-md-3">
-                <ul class="list-unstyled">
-                  <li><a href="#">About us</a></li>
-                  <li><a href="#">Services</a></li>
-                  <li><a href="#">Blog</a></li>
-                  <li><a href="#">Contact us</a></li>
-                </ul>
-              </div>
-
-              <div class="col-6 col-sm-6 col-md-3">
-                <ul class="list-unstyled">
-                  <li><a href="#">Support</a></li>
-                  <li><a href="#">Knowledge base</a></li>
-                  <li><a href="#">Live chat</a></li>
-                </ul>
-              </div>
-
-              <div class="col-6 col-sm-6 col-md-3">
-                <ul class="list-unstyled">
-                  <li><a href="#">Jobs</a></li>
-                  <li><a href="#">Our team</a></li>
-                  <li><a href="#">Leadership</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                </ul>
-              </div>
-
-              <div class="col-6 col-sm-6 col-md-3">
-                <ul class="list-unstyled">
-                  <li><a href="#">Nordic Chair</a></li>
-                  <li><a href="#">Kruzo Aero</a></li>
-                  <li><a href="#">Ergonomic Chair</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="border-top copyright">
-          <div class="row pt-4">
-            <div class="col-lg-6">
-              <p class="mb-2 text-center text-lg-start">
-                Copyright &copy;
-                <script>
-                  document.write(new Date().getFullYear());
-                </script>
-                . All Rights Reserved. &mdash; Designed with love by
-                <a href="https://untree.co">Untree.co</a> Distributed By
-                <a hreff="https://themewagon.com">ThemeWagon</a>
-                <!-- License information: https://untree.co/license/ -->
-              </p>
-            </div>
-
-            <div class="col-lg-6 text-center text-lg-end">
-              <ul class="list-unstyled d-inline-flex ms-auto">
-                <li class="me-4"><a href="#">Terms &amp; Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- End Footer Section -->
-
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/tiny-slider.js"></script>
-    <script src="js/custom.js"></script>
-  </body>
+</body>
 </html>
