@@ -263,7 +263,7 @@
     <div class="background">
       <nav class="navbar navbar-expand-lg w-100">
         <div class="container">
-            <h1><a class="navbar-brand" href="#">Glide-Tel</a></h1>
+            <h1><a class="navbar-brand" href="{% url 'home' %}">Glide-Tel</a></h1>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -283,9 +283,9 @@
                             Support
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Complaints</a></li>
-                            <li><a class="dropdown-item" href="#">About</a></li>
-                            <li><a class="dropdown-item" href="#">Claim Warranty</a></li>
+                            <li><a class="dropdown-item" href="{% url 'complaints' %}">Complaints</a></li>
+                            <li><a class="dropdown-item" href="{% url 'about' %}">About</a></li>
+                            <li><a class="dropdown-item" href="{% url 'warrenty'%}">Claim Warranty</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -295,13 +295,13 @@
                 <ul class="navbar-nav">
                     <!-- Cart Icon -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{% url 'cart' %}">
                             <i class="fas fa-shopping-cart"></i>
                         </a>
                     </li>
                     <!-- Profile Icon -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{% url 'profile' %}">
                             <i class="fas fa-user"></i>
                         </a>
                     </li>
@@ -350,7 +350,6 @@
                         <p>iQOO NEO 7 5G</p>
                         <p>Starting ₹27,999</p>
                     </div>
-    
                 </div>
                 <div class="crd">
                     <img id="huge" src=" {% static "/image/card3.jpg" %}">
