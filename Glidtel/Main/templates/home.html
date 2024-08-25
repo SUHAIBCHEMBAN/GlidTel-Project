@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!--icons-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!--favicon-->
+    <link rel="icon" type="image/png" href="{% static 'image/Glide Tel Logo.jfif' %}"/>
     <style>
       *{
         margin: 0%;
@@ -134,7 +136,7 @@
             font-weight:500;
             margin-left: 20px;
         }
-        .card{
+        {% comment %} .card{
             display: flex;
             height:750px;
             width:1189px;
@@ -178,7 +180,7 @@
         }
         #small{
             margin-top: 4px;
-        }
+        } {% endcomment %}
         
         footer{
             height: 652px;
@@ -340,33 +342,100 @@
             </div>
     </div>
 
-        <div class="banner2">
+<!---DISCOVER CARDS ---->
+
+        <div class="banner2 bg-primary p-3">
             <p>DISCOVER</p>
-            <div class="card">
-                <div class="crd">
+            <div class="container bg-success p-3">
+                <div class="vertical d-block">
+                    <!--Card_one-->
+                    <div class="v1">
+                        <div class="card mt-3" style="width: 18rem;">
+                            <img src="{% static "/image/card1.jpg" %}" class="card-img-top" alt="...">
+                            <!-- <div class="card-body"> -->
+                              <!-- <h5 class="card-title">Card title</h5> -->
+                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                            </div>
+                        </div>
+                    </div> <br>
+                    <!--Card_Two-->
+                    <div class="v1">
+                        <div class="card" style="width: 18rem;">
+                            <img id="small" src="{% static "/image/card2.jpg"%}" class="card-img-top" alt="...">
+                            <!-- <div class="card-body"> -->
+                              <!-- <h5 class="card-title">Card title</h5> -->
+                              <p>iQOO NEO 7 5G</p>
+                              <p>Starting ₹27,999</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Card Three-->
+                <div class="vertical">
+                    <!-- <div class="card" style="width: 18rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="vertical">
+                    <!--Card Four-->
+                    <div class="v3">
+                        <!-- <div class="card" style="width: 18rem;">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div> -->
+                    </div>
+                    <!--Card Five-->
+                    <div class="v3">
+                        <!-- <div class="card" style="width: 18rem;">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+                <!-- <div class="crd">
                     <img src="{% static "/image/card1.jpg" %}">
+
                     <div class="crd1">
                         <img id="small" src="{% static "/image/card2.jpg"%}">
                         <p>iQOO NEO 7 5G</p>
                         <p>Starting ₹27,999</p>
                     </div>
-                </div>
-                <div class="crd">
+                </div> -->
+
+                <!-- <div class="crd">
                     <img id="huge" src=" {% static "/image/card3.jpg" %}">
-                </div>
-                <div class="crd">
+                </div> -->
+
+                <!-- <div class="crd">
                     <div class="crd1">                  
                         <img src=" {% static "/image/card4.jpg"%}">
                         <p>TWS Air</p>
                         <p>Buy now</p>
-                    </div>                    
-                    <img src="{% static "/image/card5.jpg" %}">
-                </div>
+                    </div>    -->
+
+                    <!-- <img src="{% static "/image/card5.jpg" %}">
+                </div> -->
+
             </div>
         </div> 
 
 
-    <footer>
+    <footer class="mt-5">
             <div class="content">
              <div class="tab">
             <table >
