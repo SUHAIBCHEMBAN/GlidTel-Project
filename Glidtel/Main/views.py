@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from .models import Products
 
 # Create your views here.
 
@@ -6,7 +7,8 @@ def home(request):
     return render(request,'home.html')
 
 def shope(request):
-    return render(request,'shope.html')
+    products = Products.objects.all()
+    return render(request,'shope.html',{'Products':products})
 
 def service(request):
     return render(request,'service.html')
