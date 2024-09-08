@@ -1,8 +1,10 @@
-from pyexpat.errors import messages
+from constants import *
+from django.contrib import messages
 import random
 from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404, render,redirect
 from django.contrib.auth import get_user_model,login as auth_login , logout
+from .forms import UserProfileForm, ProfilePictureForm
 # Create your views here.
 
 
@@ -42,31 +44,51 @@ def user_login(request):
 
     return render(request, 'login.html')
 
+
+
 def otp_verify(request):
     if request.user.is_authenticated:
-        return redirect(request,'home')
+        return redirect('home')
     
     if 'otp' not in request.session:
         return redirect('login')
     
     if request.method == 'POST':
-        entered_otp = request.POST.get('otp')
+        # Combine the four OTP input fields into a single OTP value
+        entered_otp = ''.join([
+            request.POST.get('otp1', ''),
+            request.POST.get('otp2', ''),
+            request.POST.get('otp3', ''),
+            request.POST.get('otp4', '')
+        ])
+        
         stored_otp = request.session.get('otp')
 
         if entered_otp == stored_otp:
             del request.session['otp']
             email = request.session['email']
+
+            if not email:
+                messages.error(request,EMAIL_NOT_FOUND)
+                return redirect('login')
+            
             user = get_object_or_404(get_user_model(),email=email)
             auth_login(request,user)
 
-            request.session['login_success'] = True
+            # success message for toast notification
+            messages.success(request,LOGIN_SUCCESS)
 
-            message = 'Your Login Successfully Completed'
-            mail_subject = 'Glide-Tel Mobiles'
-            mail_message = 'Welcome, Glide-Tel Mobiles, Your Login Successfully Completed'
+            mail_subject = 'Smart Cart Mobiles'
+            mail_message = 'Welcome, Smart Cart Mobiles, Your Login Successfully Completed'
             send_mail(mail_subject,mail_message,'your_email@example.com',[email])
-            return render(request,'otp.html',{'error':'Invalid OTP'})
+
+            return redirect('home')
+        else:
+            messages.error(request,INVALID_OTP)
+
+
     return render(request,'otp.html')
+
 
 def resend_otp(request):
     # Get the user's email from session
@@ -74,7 +96,7 @@ def resend_otp(request):
     
     if not email:
         # If email is not found in session, redirect to login page
-        messages.error(request, "Unable to resend OTP. Please try logging in again.")
+        messages.error(request,UNABLE_RESEND_OTP)
         return redirect('login')
 
     # Generate a new OTP and store it in session
@@ -87,16 +109,40 @@ def resend_otp(request):
     send_mail(mail_subject, message, 'your_email@example.com', [email])
 
     # Notify the user that OTP has been resent
-    messages.success(request, 'A new OTP has been sent to your email.')
+    messages.success(request, NEW_OTP)
 
     # Redirect back to OTP verification page
     return redirect('otp_verify')
 
 
 def profile(request):
-    if request.user.is_authenticated:
-        return render(request,'profile.html')
-    return redirect('login')
+    if not request.user.is_authenticated:
+        return redirect('login')
+    
+    user = request.user
+    profile = user.userprofile  # Access the user profile
+
+    if request.method == 'POST':
+        user_form = UserProfileForm(request.POST, instance=user)
+        profile_form = ProfilePictureForm(request.POST, request.FILES, instance=profile)
+        
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, PROFLE_UPDATE)
+            return redirect('profile')
+    else:
+        user_form = UserProfileForm(instance=user)
+        profile_form = ProfilePictureForm(instance=profile)
+    
+    profile_picture_url = profile.profile_picture.url if profile.profile_picture else ''
+
+    context = {
+        'user_form': user_form,
+        'profile_form': profile_form,
+        'profile_picture_url': profile_picture_url, 
+    }
+    return render(request, 'profile.html', context)
 
 def user_logout(request):
     if request.user.is_authenticated:
