@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glide-Tel | Home </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- SweetAlert CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     <!-- FontAwesome CDN for Icons -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <!--icons-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <!--favicon-->
@@ -280,7 +284,7 @@
   </div>
 {% endif %}
 
-    <div class="background">
+    {% comment %} <div class="background">
       <nav class="navbar navbar-expand-lg w-100">
         <div class="container">
             <h1><a class="navbar-brand" href="{% url 'home' %}">Smart Cart</a></h1>
@@ -328,7 +332,60 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> {% endcomment %}
+
+    <div class="background">
+        <nav class="navbar navbar-expand-lg w-100">
+            <div class="container">
+                <h1><a class="navbar-brand" href="{% url 'home' %}">Smart Cart</a></h1>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'shope' %}">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'service' %}">Service</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Support
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="#" onclick="checkAuth('{% url 'complaints' %}')">Complaints</a>
+                                </li>
+                                <li><a class="dropdown-item" href="{% url 'about' %}">About</a></li>
+                                <li><a class="dropdown-item" href="{% url 'warrenty'%}">Claim Warranty</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                    <ul class="navbar-nav">
+                        <!-- Cart Icon -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="checkAuth('{% url 'cart' %}')">
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
+                        </li>
+                        <!-- Profile Icon -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="checkAuth('{% url 'profile' %}')">
+                                <i class="fas fa-user"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
     
     
     <div class="banner">
@@ -556,7 +613,25 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
-
+<!-- SweetAlert Script -->
+<script>
+    function checkAuth(redirectUrl) {
+        const isAuthenticated = {{ user.is_authenticated|yesno:"true,false" }};  // Check authentication
+        if (isAuthenticated) {
+            window.location.href = redirectUrl;  // Redirect if authenticated
+        } else {
+            // Show SweetAlert if not authenticated
+            Swal.fire({
+                title: 'You must be logged in!',
+                html: '<h4>You must log in to register complaints, view the profile, or access the cart page.</h4>',
+                icon: 'warning',
+                showCancelButton: false,
+                confirmButtonColor: '#000',
+                confirmButtonText: '<a href="{% url "login" %}" style="color: white; text-decoration: none;">➡ Go To Login</a>',
+            });
+        }
+    }
+</script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
       var toastElList = [].slice.call(document.querySelectorAll('.toast'));

@@ -17,13 +17,14 @@ def warrenty(request):
     return render(request,'warrenty.html')
 
 def complaints(request):
-    return render(request,'complaints.html')
+    if request.user.is_authenticated:
+        return redirect('complaintes')
+    
 
 def about(request):
     return render(request,'about.html')
 
 def cart(request):
     if request.user.is_authenticated:
-        return render(request,'cart.html')
-    else:
-        return redirect('login')
+        return redirect('cart')
+    

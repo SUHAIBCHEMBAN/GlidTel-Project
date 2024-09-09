@@ -117,7 +117,7 @@ def resend_otp(request):
 
 def profile(request):
     if not request.user.is_authenticated:
-        return redirect('login')
+        return redirect('login_required')
     
     user = request.user
     profile = user.userprofile  # Access the user profile
