@@ -18,7 +18,7 @@ def warrenty(request):
 
 def complaints(request):
     if request.user.is_authenticated:
-        return redirect('complaintes')
+        return redirect('complaints')
     
 
 def about(request):

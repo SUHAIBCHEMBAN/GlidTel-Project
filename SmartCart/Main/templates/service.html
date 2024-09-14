@@ -1,1 +1,50 @@
 {% extends "base.html" %}
+{% block title %}Smart Cart | Services {% endblock %}
+{% block content %}
+
+<!-- Services Section -->
+<div class="container my-5">
+    <h1 class="text-center mb-4">Our Services</h1>
+    <div class="row">
+        <!-- Service 1: Mobile Repair -->
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card h-100 text-center">
+                <img src="path_to_logo_1.jpg" class="card-img-top" alt="Mobile Repair Logo">
+                <div class="card-body">
+                    <h5 class="card-title">Mobile Repair</h5>
+                    <p class="card-text">Expert mobile repair services for all brands. Quick, reliable, and affordable repairs.</p>
+                    <a href="/services/mobile-repair" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 2: Computer Repair -->
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card h-100 text-center">
+                <img src="path_to_logo_2.jpg" class="card-img-top" alt="Computer Repair Logo">
+                <div class="card-body">
+                    <h5 class="card-title">Computer Repair</h5>
+                    <p class="card-text">Professional repair services for desktops, laptops, and all types of computers.</p>
+                    <a href="/services/computer-repair" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 3: Mobile Accessories -->
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card h-100 text-center">
+                <img src="path_to_logo_3.jpg" class="card-img-top" alt="Mobile Accessories Logo">
+                <div class="card-body">
+                    <h5 class="card-title">Mobile Accessories</h5>
+                    <p class="card-text">Wide range of mobile accessories from top brands, including cases, chargers, and more.</p>
+                    <a href="/services/mobile-accessories" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more services as needed -->
+    </div>
+</div>
+
+{% endblock %}
+    
