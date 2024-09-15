@@ -1,1 +1,106 @@
 {% extends "base.html" %}
+{% block title %}Smart Cart | About {% endblock  %}
+{% block content %}
+
+<div class="container mt-5">
+    <!-- About Us Section -->
+    <div class="row">
+        <div class="col-lg-6">
+            <h1 class="display-5 fw-bold">About Us</h1>
+            <p class="lead">At <strong>Smart Cart</strong>, we are dedicated to providing top-notch mobile and computer repair services, along with a wide range of high-quality devices for sale. With years of experience, our expert team ensures quick and reliable solutions, helping you stay connected in today's fast-paced digital world.</p>
+            <p>From cracked screens to software troubleshooting, we handle it all! Our goal is to deliver affordable, fast, and reliable services that keep your devices running smoothly, all while offering unbeatable customer support.</p>
+        </div>
+        <div class="col-lg-6 text-center">
+            {% comment %} <img src="{% static 'images/about-us.jpg' %}" alt="About Us Image" class="img-fluid rounded shadow-sm"> {% endcomment %}
+        </div>
+    </div>
+
+    <!-- Mission Section -->
+    <div class="row mt-5">
+        <div class="col-lg-12 text-center">
+            <h2 class="fw-bold">Our Mission</h2>
+            <p class="lead">"To deliver exceptional mobile and computer services that blend innovation, quality, and convenience to create seamless technology experiences for our customers."</p>
+        </div>
+    </div>
+
+    <!-- Why Choose Us Section -->
+    <div class="row mt-5">
+        <div class="col-lg-12">
+            <h2 class="text-center fw-bold">Why Choose Us?</h2>
+        </div>
+        <div class="col-md-4 text-center">
+            <i class="bi bi-wrench fs-1"></i>
+            <h4 class="mt-3">Expert Technicians</h4>
+            <p>Our certified professionals bring years of experience to ensure your devices receive the best care possible.</p>
+        </div>
+        <div class="col-md-4 text-center">
+            <i class="bi bi-lightning-charge fs-1"></i>
+            <h4 class="mt-3">Fast Service</h4>
+            <p>We understand how important your devices are, so we focus on offering quick and efficient repair solutions.</p>
+        </div>
+        <div class="col-md-4 text-center">
+            <i class="bi bi-wallet2 fs-1"></i>
+            <h4 class="mt-3">Affordable Pricing</h4>
+            <p>Get the best value for your money with our competitively priced services and products, without compromising on quality.</p>
+        </div>
+    </div>
+
+    <!-- Our Team Section -->
+    <div class="row mt-5">
+        <div class="col-lg-12 text-center">
+            <h2 class="fw-bold">Meet Our Team</h2>
+            <p class="lead">Our passionate team is committed to excellence and customer satisfaction.</p>
+        </div>
+        <div class="col-md-4 text-center">
+            {% comment %} <img src="{% static 'images/team1.jpg' %}" alt="Team Member 1" class="img-fluid rounded-circle mb-3" style="width: 150px;"> {% endcomment %}
+            <h5>John Doe</h5>
+            <p>Founder & CEO</p>
+        </div>
+        <div class="col-md-4 text-center">
+            {% comment %} <img src="{% static 'images/team2.jpg' %}" alt="Team Member 2" class="img-fluid rounded-circle mb-3" style="width: 150px;"> {% endcomment %}
+            <h5>Jane Smith</h5>
+            <p>Lead Technician</p>
+        </div>
+        <div class="col-md-4 text-center">
+            {% comment %} <img src="{% static 'images/team3.jpg' %}" alt="Team Member 3" class="img-fluid rounded-circle mb-3" style="width: 150px;"> {% endcomment %}
+            <h5>Michael Lee</h5>
+            <p>Customer Support Manager</p>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="row mt-5 bg-light p-5 rounded shadow-sm">
+        <div class="col-lg-12 text-center">
+            <h2 class="fw-bold">What Our Customers Say</h2>
+        </div>
+        <div class="col-md-4 text-center">
+            <blockquote class="blockquote">
+                <p>"Smart Cart fixed my phone in no time! Amazing service and very affordable!"</p>
+                <footer class="blockquote-footer">Sarah K.</footer>
+            </blockquote>
+        </div>
+        <div class="col-md-4 text-center">
+            <blockquote class="blockquote">
+                <p>"Professional and reliable, I wouldn’t trust anyone else with my computer repairs."</p>
+                <footer class="blockquote-footer">David P.</footer>
+            </blockquote>
+        </div>
+        <div class="col-md-4 text-center">
+            <blockquote class="blockquote">
+                <p>"Best tech support experience ever! The team at Smart Cart knows their stuff!"</p>
+                <footer class="blockquote-footer">Emma R.</footer>
+            </blockquote>
+        </div>
+    </div>
+
+    <!-- Call to Action Section -->
+    <div class="row mt-5 text-center">
+        <div class="col-lg-12">
+            <h2 class="fw-bold">Ready to Get Started?</h2>
+            <p class="lead">Whether you need a repair or are looking for the latest devices, we've got you covered. Contact us today!</p>
+            {% comment %} <a href="{% url '' %}" class="btn btn-primary btn-lg mt-3">Get in Touch</a> {% endcomment %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

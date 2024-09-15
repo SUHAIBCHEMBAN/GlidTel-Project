@@ -91,11 +91,53 @@
         /* Footer Styling */
         .footer {
             background-color: #f8f9fa;
-            padding: 20px;
-            text-align: center;
-            color: #555;
+            padding: 40px 20px;
             margin-top: 50px;
+            color: #555;
         }
+        .footer .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .footer h5 {
+            font-weight: bold;
+            color: #333;
+        }
+        .footer ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .footer ul li {
+            margin: 8px 0;
+        }
+        .footer ul li a {
+            color: #555;
+            text-decoration: none;
+        }
+        .footer ul li a:hover {
+            {% comment %} text-decoration: underline; {% endcomment %}
+            color:#000;
+        }
+        .footer .social-icons a {
+            margin: 0 10px;
+            color: #333;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        .footer .social-icons a:hover {
+            color: #000;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            border-top: 1px solid #ccc;
+            padding-top: 15px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
     </style>
 </head>
 <body>
@@ -153,12 +195,59 @@
     <!-- Main Content -->
     
     {% block content %}{% endblock %}
-    
 
     <!-- Footer -->
-    <div class="footer">
-        <p>&copy; 2024 Smart Cart. All rights reserved.</p>
-    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Services -->
+                <div class="footer-section">
+                    <h5>Services</h5>
+                    <ul>
+                        <li><a href="{% url 'service' %}">Mobile Repairs</a></li>
+                        <li><a href="{% url 'service' %}">Computer Repairs</a></li>
+                        <li><a href="{% url 'shope' %}">Phone & Laptop Sales</a></li>
+                        <li><a href="#">Data Recovery</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="{% url 'about' %}">About Us</a></li>
+                        <li><a href="{% url 'about' %}">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="{% url 'warrenty' %}">Warranty & Returns</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Us -->
+                <div class="footer-section">
+                    <h5>Contact Us</h5>
+                    <ul>
+                        <li>📍 Padikkal,Malappuram,Kerala,India</li>
+                        <li>📞 +91 992 0980 233</li>
+                        <li>✉️ smartcart12@gmail.com</li>
+                        <li>⏱ Mon-Fri 9 AM - 6 PM</li>
+                    </ul>
+                </div>
+
+                <!-- Social Links -->
+                <div class="footer-section social-icons">
+                    <h5>Follow Us</h5>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Smart Cart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Bootstrap JS and Popper -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

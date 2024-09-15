@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import Products
+from .models import Products,Service
 
 # Create your views here.
 
@@ -11,9 +11,14 @@ def shope(request):
     return render(request,'shope.html',{'Products':products})
 
 def service(request):
-    return render(request,'service.html')
+    services = Service.objects.all()
+    return render(request,'service.html',{'service':services})
+
+def service_form(request):
+    return render(request,'service-form.html')
 
 def warrenty(request):
+
     return render(request,'warrenty.html')
 
 def complaints(request):

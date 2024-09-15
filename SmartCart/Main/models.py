@@ -12,3 +12,14 @@ class Products(models.Model):
     def __str__(self) -> str:
         return self.name
 
+
+class Service(models.Model):
+    image = models.ImageField(upload_to='service_img')
+    title = models.CharField(max_length=50)
+    description = models.CharField(max_length=500)
+    button = models.CharField(max_length=10)
+
+    def __str__(self) -> str:
+        return self.title
+
+
