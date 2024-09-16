@@ -43,10 +43,11 @@
 </div>
 
 <!-- Curved Container for Product details -->
-<div class="container bg-dark mt-5">
-    <p>iphone 16 </p>
-    <img src="{% static 'image/card1.jpg' %}" class="card-img-top" alt="Card 1">
- </div>
+<div class="container Curved p-3 bg-dark mt-5">
+    <p>iphone 16</p>
+</div>
+
+
 
 <!-- Moveable Card Carousel -->
 <div class="container mt-5">
@@ -157,6 +158,10 @@
         border-radius: 10px; /* Rounded corners for better visual appeal */
     }
 
+    .Curved{
+        border-radius:20px;
+    }
+
     /* Set a fixed height for the card images */
     .card-img-top {
         height: 200px;
@@ -185,6 +190,17 @@
         display: flex;
         align-items: center;
     }
+    .Curved {
+        border-radius: 15px; /* Curved corners */
+        overflow: hidden; /* Ensures content doesn't overflow the container */
+        background-image: url("{% static 'image/card1.jpg' %}"); /* Add your background image */
+        background-size: cover; /* Makes sure the image covers the entire div */
+        background-position: center; /* Centers the image */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        height: 300px; /* Set the height of the div (or adjust as necessary) */
+        width: 100%; /* Makes the div full width (or adjust as necessary) */
+    }
+       
 </style>
 
 <!-- Auto-slide functionality -->
