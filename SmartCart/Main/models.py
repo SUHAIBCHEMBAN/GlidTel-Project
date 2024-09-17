@@ -21,5 +21,16 @@ class Service(models.Model):
 
     def __str__(self) -> str:
         return self.title
+    
+
+class Booking(models.Model):
+    name = models.CharField(max_length=100)
+    mobile_number = models.CharField(max_length=15)
+    address = models.TextField()
+    message = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
 
 

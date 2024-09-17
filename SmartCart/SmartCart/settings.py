@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Accounts',
     'Main',
     'Payment',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

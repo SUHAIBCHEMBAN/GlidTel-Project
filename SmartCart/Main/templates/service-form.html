@@ -1,2 +1,72 @@
 {% extends "base.html" %}
-{% block title %}Smart Cart | Service Form{% endblock title %}
+{% block title %}Service Booking {% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-12">
+            <div class="card shadow p-5">
+                <h2 class="text-center mb-4">Book a Service</h2>
+
+                <!-- Redesigned Form with 100% Width -->
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <!-- Full Name Field -->
+                    <div class="form-floating mb-4">
+                        <input type="text" class="form-control shadow-sm w-100" id="name" name="name" placeholder="Full Name" required>
+                        <label for="name">Full Name</label>
+                    </div>
+
+                    <!-- Mobile Number Field -->
+                    <div class="form-floating mb-4">
+                        <input type="tel" class="form-control shadow-sm w-100" id="mobile_number" name="mobile_number" placeholder="Mobile Number" required>
+                        <label for="mobile_number">Mobile Number</label>
+                    </div>
+
+                    <!-- Address Field -->
+                    <div class="form-floating mb-4">
+                        <input type="text" class="form-control shadow-sm w-100" id="address" name="address" placeholder="Address" required>
+                        <label for="address">Address</label>
+                    </div>
+
+                    <!-- Additional Details Field -->
+                    <div class="form-floating mb-4">
+                        <textarea class="form-control shadow-sm w-100" id="message" name="message" placeholder="Additional Details" style="height: 100px;"></textarea>
+                        <label for="message">Additional Details</label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg w-100 shadow-sm">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toastify Notification -->
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script>
+    {% if success %}
+    Toastify({
+        text: "Booking successful! We will contact you soon.",
+        duration: 4000,
+        gravity: "top",
+        position: "center",
+        backgroundColor: "#198754",  // Solid green color for success
+        stopOnFocus: true,
+        style: {
+            color: "#fff",
+            fontSize: "14px",
+            padding: "10px 15px",  // Smaller padding for compact size
+            borderRadius: "6px",
+            boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.1)",
+            maxWidth: "250px",  // Maximum width to keep it compact
+            width: "auto",  // Toast won't stretch beyond content
+        },
+    }).showToast();
+{% endif %}
+</script>
+{% endblock %}
