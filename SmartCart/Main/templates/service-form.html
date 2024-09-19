@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Service Booking {% endblock %}
+{% block title %}Service Booking{% endblock %}
 
 {% block content %}
 <div class="container my-5">
@@ -20,7 +20,8 @@
 
                     <!-- Mobile Number Field -->
                     <div class="form-floating mb-4">
-                        <input type="tel" class="form-control shadow-sm w-100" id="mobile_number" name="mobile_number" placeholder="Mobile Number" required>
+                        <input type="tel" class="form-control shadow-sm w-100" id="mobile_number" name="mobile_number" placeholder="Mobile Number" 
+                            required pattern="[0-9]{10}" inputmode="numeric" maxlength="10">
                         <label for="mobile_number">Mobile Number</label>
                     </div>
 
@@ -38,7 +39,7 @@
 
                     <!-- Submit Button -->
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary btn-lg w-100 shadow-sm">Submit</button>
+                        <button type="submit" class="btn btn-dark btn-lg w-100 shadow-sm">Submit</button>
                     </div>
                 </form>
             </div>
@@ -46,27 +47,32 @@
     </div>
 </div>
 
-<!-- Toastify Notification -->
-<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-<script>
-    {% if success %}
-    Toastify({
-        text: "Booking successful! We will contact you soon.",
-        duration: 4000,
-        gravity: "top",
-        position: "center",
-        backgroundColor: "#198754",  // Solid green color for success
-        stopOnFocus: true,
-        style: {
-            color: "#fff",
-            fontSize: "14px",
-            padding: "10px 15px",  // Smaller padding for compact size
-            borderRadius: "6px",
-            boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.1)",
-            maxWidth: "250px",  // Maximum width to keep it compact
-            width: "auto",  // Toast won't stretch beyond content
-        },
-    }).showToast();
+<!-- Django Message Toast Notification System -->
+{% if messages %}
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+        <div class="toast-container position-fixed top-0 end-0 p-3">
+            {% for message in messages %}
+                <div class="toast align-items-center text-bg-{{ message.tags }} border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            {{ message }}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endif %}
+
+<!-- Show the toast notifications automatically on page load -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var toastElList = [].slice.call(document.querySelectorAll('.toast'));
+      var toastList = toastElList.map(function (toastEl) {
+        return new bootstrap.Toast(toastEl);
+      });
+      toastList.forEach(toast => toast.show());
+    });
 </script>
 {% endblock %}

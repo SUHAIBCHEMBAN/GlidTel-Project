@@ -13,7 +13,11 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ Service.title }}</h5>
                     <p class="card-text">{{ Service.description }}</p>
-                    <a href="{% url 'service_form' %}" class="btn btn-dark">{{ Service.button }}</a>
+                    <a href="javascript:void(0);" 
+                        class="btn btn-dark" 
+                        onclick="{% if user.is_authenticated %}window.location.href='{% url 'service_form' %}'{% else %}unauthenticatedAlert(){% endif %}">
+                        {{ Service.button }}
+                    </a>
                 </div>
             </div>
         </div>

@@ -82,8 +82,9 @@
         <div class="profile-card">
             <h2>User Profile</h2>
 
-            <!-- Display Profile Picture -->
-            <div class="profile-picture" style="background-image: url('{{ user.userprofile.profile_picture.url }}');"></div>
+           <!-- Display Profile Picture -->
+          <div class="profile-picture" 
+                style="background-image: url('{{ profile_picture_url|default:"/media/default_image.jpg" }}');"></div>
 
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}

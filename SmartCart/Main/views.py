@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Products,Service,Booking
 from .forms import BookingForm
+from constants import *
 
 # Create your views here.
 
@@ -15,8 +16,9 @@ def service(request):
     services = Service.objects.all()
     return render(request,'service.html',{'service':services})
 
+from django.contrib import messages  # Import messages
+
 def service_form(request):
-    success = False  # Success flag for Toastify notification
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
@@ -27,12 +29,17 @@ def service_form(request):
                 address=form.cleaned_data['address'],
                 message=form.cleaned_data['message'],
             )
-            success = True  # Set success to True when booking is successful
+            # Add success message using Django's messages framework
+            messages.success(request, BOOKING_SUCCESS)
             form = BookingForm()  # Reset form after submission
+        else:
+            # Add error message if the form is not valid
+            messages.error(request, SUBMITION_ERROR)
     else:
         form = BookingForm()
-    
-    return render(request, 'service-form.html', {'form': form, 'success': success})
+
+    return render(request, 'service-form.html', {'form': form})
+
 
 def warrenty(request):
     return render(request,'warrenty.html')
@@ -41,6 +48,7 @@ def about(request):
     return render(request,'about.html')
 
 def cart(request):
-    if request.user.is_authenticated:
-        return redirect('cart')
+    if not request.user.is_authenticated:
+        return redirect('login')
+    return render(request,'cart.html')
     

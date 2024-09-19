@@ -5,6 +5,7 @@ from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404, render,redirect
 from django.contrib.auth import get_user_model,login as auth_login , logout
 from .forms import UserProfileForm, ProfilePictureForm
+from .models import UserProfile
 # Create your views here.
 
 
@@ -117,10 +118,10 @@ def resend_otp(request):
 
 def profile(request):
     if not request.user.is_authenticated:
-        return redirect('login_required')
+        return redirect('login')
     
     user = request.user
-    profile = user.userprofile  # Access the user profile
+    profile, created = UserProfile.objects.get_or_create(user=user)
 
     if request.method == 'POST':
         user_form = UserProfileForm(request.POST, instance=user)
