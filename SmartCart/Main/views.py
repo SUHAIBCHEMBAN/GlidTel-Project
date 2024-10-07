@@ -1,3 +1,4 @@
+from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render,redirect
 from .models import Products,Service,Booking
 from .forms import BookingForm
@@ -11,6 +12,13 @@ def home(request):
 def shope(request):
     products = Products.objects.all()
     return render(request,'shope.html',{'Products':products})
+
+def buynow(request, product_id):
+    product = get_object_or_404(Products, id=product_id)
+    return render(request, 'buynow.html', {'product': product})
+
+def order_confirm(request):
+    return render(request,'confirm.html')
 
 def service(request):
     services = Service.objects.all()

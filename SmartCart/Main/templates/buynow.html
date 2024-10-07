@@ -1,1 +1,30 @@
 {% extends "base.html" %}
+{% block title %}Smart Cart | Buy Now{% endblock %}
+{% block content %}
+<!-- Buy Now Section -->
+<div class="container mt-5">
+    <h1 class="text-center mb-5">Product Details</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <img src="{{ product.image.url }}" class="card-img-top" alt="Product Image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="price">{{ product.price }}</p>
+                    <p class="card-text">{{ product.discription }}</p>
+                    <a href="#" 
+                        class="btn btn-dark" 
+                        onclick="
+                            {% if user.is_authenticated %}
+                                window.location.href = '{% url 'buynow' product.id %}';
+                            {% else %}
+                                unauthenticatedAlert();
+                            {% endif %}">
+                        Confirm
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

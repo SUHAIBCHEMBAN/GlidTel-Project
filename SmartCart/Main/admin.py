@@ -5,12 +5,15 @@ from .models import Products,Service,Booking
 
 class ProductsAdmin(admin.ModelAdmin):
     list_display = ('id','name','price','discription','quantity','image')
+    list_filter = ['name','price']
 
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ('id','title','description','image','button')
+    list_filter = ['title']
 
 class BookinAdmin(admin.ModelAdmin):
     list_display = ('id','name','mobile_number','address','message')
+    list_filter = ['mobile_number']
 
 
 

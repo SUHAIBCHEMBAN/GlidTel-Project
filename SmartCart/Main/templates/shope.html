@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Smart Cart | Shope{% endblock  %}
+{% block title %}Smart Cart | Shop{% endblock %}
 {% block content %}
 <!-- Shop Section -->
 <div class="container mt-5">
@@ -14,7 +14,7 @@
                         <h5 class="card-title">{{ Product.name }}</h5>
                         <p class="price">{{ Product.price }}</p>
                         <p class="card-text">{{ Product.discription }}</p>
-                        <a href="#" class="btn btn-dark  mt-auto">Buy Now</a>
+                        <a href="{% url 'buynow' Product.id %}" class="btn btn-dark mt-auto">Buy Now</a>
                     </div>
                 </div>
             </div>
@@ -65,4 +65,4 @@
         }
     }
 </style>
-{% endblock  %}
+{% endblock %}
